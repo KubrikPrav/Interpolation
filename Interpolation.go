@@ -59,7 +59,13 @@ func Linear[T anyNum](target_x T, x1 T, x2 T, val1 T, val2 T) T {
 	if x1 == x2 {
 		return val1
 	} else {
-		return -((x2*val1 - x1*val2) / (x1 - x2)) - ((-val1+val2)*target_x)/(x1-x2)
+		var target_x_f, x1_f, x2_f, val1_f, val2_f float64
+		target_x_f = float64(target_x)
+		x1_f = float64(x1)
+		x2_f = float64(x2)
+		val1_f = float64(val1)
+		val2_f = float64(val2)
+		return T(-((x2_f*val1_f - x1_f*val2_f) / (x1_f - x2_f)) - ((-val1_f+val2_f)*target_x_f)/(x1_f-x2_f))
 	}
 }
 
